@@ -16,18 +16,22 @@ const SubRedditCard = ({subreddit}: Props) => {
         return ref.current;
     }
 
+    const getDescription = (maxLength : number) =>{
+        return truncate(subreddit.public_description, maxLength);
+    };
+
     const [description, setDescription] = useState<string>(subreddit.public_description);
     const [descriptionSize, setDescriptionSize] = useState<number>(150);
     const prevSubReddit = usePrevious({subreddit});
 
     useEffect(() => {
             setDescription(getDescription(descriptionSize));
-    });
+    },  [getDescription, descriptionSize]);
 
     useEffect(() => { //Reset description size on loading new subreddit
         if(subreddit !== prevSubReddit)
             setDescriptionSize(150);
-    }, [subreddit]);
+    }, [subreddit, prevSubReddit]);
 
 
     const getImgUrl = () =>{
@@ -44,10 +48,6 @@ const SubRedditCard = ({subreddit}: Props) => {
         return (str.length > n) ? str.substr(0, n-1) + '...' : str;
     };
 
-    const getDescription = (maxLength : number) =>{
-            return truncate(subreddit.public_description, maxLength);
-    };
-
     const toggleExpandDescription = () =>{
         if(descriptionSize > 200)
             setDescriptionSize(150);
@@ -59,8 +59,8 @@ const SubRedditCard = ({subreddit}: Props) => {
 
     return (
         <div className="card border">
-            <a href={"https://www.reddit.com/" + subreddit.display_name_prefixed} target="_blank">
-            {imgUrl !== "" && imgUrl !== undefined && imgUrl !== null ? <img src={getImgUrl()}/> : <FaQuestionCircle size={150}></FaQuestionCircle>}
+            <a href={"https://www.reddit.com/" + subreddit.display_name_prefixed} target="_blank" rel={"noopener"}>
+            {imgUrl !== "" && imgUrl !== undefined && imgUrl !== null ? <img alt={subreddit.display_name + " icon"} src={getImgUrl()}/> : <FaQuestionCircle size={150}></FaQuestionCircle>}
             <h1 >{subreddit.display_name}</h1>
             </a>
             <p onClick={toggleExpandDescription}>{description}</p>

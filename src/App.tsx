@@ -31,7 +31,7 @@ const App = () => {
             if (!nextSubreddit) setNextSubreddit(await getRandomSubreddit());
         }
         init();
-    }, []);
+    }, [leftSubreddit, rightSubreddit, nextSubreddit]);
 
 
     const getRandomSubreddit = async (): Promise<Subreddit> => {
@@ -55,7 +55,7 @@ const App = () => {
     const makeGuess = (higher: boolean) => {
         if (rightSubreddit && leftSubreddit) {
             setReadyForGuess(false);
-            if (higher && (rightSubreddit?.subscribers >= leftSubreddit?.subscribers) || !higher && ((rightSubreddit?.subscribers <= leftSubreddit?.subscribers))) {
+            if ((higher && (rightSubreddit?.subscribers >= leftSubreddit?.subscribers)) || (!higher && ((rightSubreddit?.subscribers <= leftSubreddit?.subscribers)))) {
                 setScore(score + 1);
                 setTimeout(function () {
                     setWinning(true);
