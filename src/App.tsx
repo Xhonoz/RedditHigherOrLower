@@ -81,7 +81,6 @@ const App = () => {
     }
 
     const getBackgroundColor =( subreddit : Subreddit | undefined) =>{
-        console.log("key:" + subreddit?.key_color, "banner:" + subreddit?.banner_background_color);
         if(subreddit?.key_color && !colorTooDark(subreddit?.key_color))
             return subreddit.key_color;
         if(subreddit?.banner_background_color && !colorTooDark(subreddit?.banner_background_color))
