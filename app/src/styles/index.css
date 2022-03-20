@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+}
+
+.movingCard {
+    z-index: 2;
+    animation-name: slide;
+    animation-duration: 2s;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+/* Control the left side */
+.left {
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: 1px;
+    left: 0;
+}
+
+/* Control the right side */
+.right {
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: 1px;
+    right: 0;
+}
+
+.prev {
+    z-index: 0;
+}
+
+.section {
+    min-width: 50%;
+    position: absolute;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.subcount {
+    margin-top: 10px;
+    position: relative;
+    text-align: center;
+}
+
+.subcount h1 {
+    font-size: xxx-large;
+}
+
+.card {
+    position: relative;
+    text-align: center;
+}
+
+.card a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.card a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.card a:link:hover {
+    text-decoration: underline;
+    color:darkblue;
+}
+
+.card img {
+    height: 150px;
+    border-radius: 50%;
+}
+
+.card FaQuestionCircle {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.card p {
+    width: 100%;
+    min-height: 100px;
+    cursor: pointer;
+}
+
+.guess {
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.guess button {
+    width: 50%;
+    /*margin: 20px;*/
+    float: top;
+    /*-webkit-text-stroke: 0.5px grey; !* width and color *!*/
+    font-size: xx-large;
+}
+
+.guess button:hover .arrowUp {
+    transform: translateY(0%);
+}
+
+.guess button:hover .arrowDown {
+    transform: translateY(30%);
+}
+
+.arrowUp {
+    margin-left: 10%;
+    float: bottom;
+    transform: translateY(20%);
+}
+
+.arrowDown {
+    margin-left: 12%;
+    transform: translateY(10%);
+}
+
+.score {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    padding: 2%;
+    font-size: xxx-large;
+    font-family: inherit;
+}
+
+.dot {
+    position: relative;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    align-items: center;
+
+}
+
+.dot h1 {
+    margin-top: 25%;
+}
+
+.winDot {
+    background-color: green;
+}
+
+.check {
+    margin-top: 23%;
+    color: white;
+}
+
+.times {
+    margin-top: 23%;
+    color: white;
+}
+
+.loseDot {
+    background-color: red;
+}
+
+.center {
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 6em;
+    height: 6em;
+    margin-top: -3em;
+    margin-left: -3em;
+    position: fixed;
+}
+
+.loseBackground {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+}
+
+.lose {
+    min-width: 50%;
+    position: absolute;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.lose button {
+    margin-top: 5%;
+}
+
+.lose h1 {
+    font-size: xxx-large;
+}
+
+.btn {
+    z-index: 2;
+    display: inline-block;
+    background: darkred;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 100px;
+    font-family: "Arial";
+}
+
+.btn:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+}
+
+.btn:focus {
+    /*background: red;*/
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
