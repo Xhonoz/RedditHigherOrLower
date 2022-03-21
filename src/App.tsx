@@ -35,7 +35,10 @@ const App = () => {
 
 
     const getRandomSubreddit = async (): Promise<Subreddit> => {
-        const res = await fetch('https://reddit-api-bice.vercel.app/Random');
+        const res = await fetch('https://reddit-api-2s4nznz6h-xhonoz.vercel.app/Random',{
+            headers: {
+            'Content-Type': 'application/json'
+        }},);
         return (await res.json()).data.data;
     }
 
