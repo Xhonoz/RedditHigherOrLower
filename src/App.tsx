@@ -62,10 +62,9 @@ const App = () => {
         if (rightSubreddit && leftSubreddit) {
             setReadyForGuess(false);
             if ((higher && (rightSubreddit?.subscribers >= leftSubreddit?.subscribers)) || (!higher && ((rightSubreddit?.subscribers <= leftSubreddit?.subscribers)))) {
-                setScore(score + 1);
                 setTimeout(function () {
                     setWinning(true);
-
+                    setScore(score + 1);
                 }, 1500);
                 setTimeout(function () {
                     setWinning(false);
