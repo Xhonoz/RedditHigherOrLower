@@ -1,0 +1,35 @@
+.card {
+    position: relative;
+    text-align: center;
+}
+
+.card a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.card a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.card a:link:hover {
+    text-decoration: underline;
+    color:darkblue;
+}
+
+.card img {
+    height: 150px;
+    border-radius: 50%;
+}
+
+.card FaQuestionCircle {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.card p {
+    width: 100%;
+    min-height: 100px;
+    cursor: pointer;
+}

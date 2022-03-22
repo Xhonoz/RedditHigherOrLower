@@ -1,0 +1,43 @@
+.dot {
+    position: relative;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    align-items: center;
+}
+
+.dot h1 {
+    margin-top: 25%;
+}
+
+.winDot {
+    background-color: green;
+}
+
+.loseDot {
+    background-color: red;
+}
+
+.center {
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 6em;
+    height: 6em;
+    margin-top: -3em;
+    margin-left: -3em;
+    position: fixed;
+}
+
+.check {
+    margin-top: 23%;
+    color: white;
+}
+
+.times {
+    margin-top: 23%;
+    color: white;
+}

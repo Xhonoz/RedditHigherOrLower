@@ -1,0 +1,32 @@
+.guess {
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.guess button {
+    width: 50%;
+    /*margin: 20px;*/
+    float: top;
+    /*-webkit-text-stroke: 0.5px grey; !* width and color *!*/
+    font-size: xx-large;
+}
+
+.guess button:hover .arrowUp {
+    transform: translateY(0%);
+}
+
+.guess button:hover .arrowDown {
+    transform: translateY(30%);
+}
+
+.arrowUp {
+    margin-left: 10%;
+    float: bottom;
+    transform: translateY(20%);
+}
+
+.arrowDown {
+    margin-left: 12%;
+    transform: translateY(10%);
+}

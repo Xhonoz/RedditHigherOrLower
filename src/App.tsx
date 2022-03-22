@@ -8,7 +8,10 @@ import Score from "./Components/Score";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import Lose from "./Components/Lose";
 import MiddleCircle from "./Components/MiddleCircle";
-import colorTooDark from "./Utils";
+import { colorTooLight, getBackgroundColor } from "./Utils";
+import styles from './Styles/App.module.css';
+
+
 
 const App = () => {
 
@@ -83,14 +86,6 @@ const App = () => {
         }
     }
 
-    const getBackgroundColor =( subreddit : Subreddit | undefined) =>{
-        if(subreddit?.key_color && !colorTooDark(subreddit?.key_color))
-            return subreddit.key_color;
-        if(subreddit?.banner_background_color && !colorTooDark(subreddit?.banner_background_color))
-            return subreddit.banner_background_color;
-        return "";
-    }
-
     return (
         <>
             <div>
@@ -99,29 +94,26 @@ const App = () => {
                         path='/'
                         element={
                             <>
-                                <div style={{backgroundColor: getBackgroundColor(prevSubreddit)}} className="split left prev">
-                                    <div className="section">
+                                <div style={{backgroundColor: getBackgroundColor(prevSubreddit)}} className={`${styles.split} ${styles.left} ${styles.prev}`}>
+                                    <div className={styles.section}>
                                         {prevSubreddit && <SubRedditCard subreddit={prevSubreddit}></SubRedditCard>}
                                         {prevSubreddit && <Subcount subreddit={prevSubreddit} countUp={false}></Subcount>}
                                     </div>
                                 </div>
                                 <div style={{backgroundColor: getBackgroundColor(leftSubreddit)}}
-                                     className={
-                                         "split left " +
-                                         (readyForGuess && prevSubreddit ? "movingCard " : "")
-                                     }>
-                                    <div className="section">
+                                     className={`${styles.split} ${styles.left} ${(readyForGuess && prevSubreddit ? styles.movingCard : "")}`}>
+                                    <div className={styles.section}>
                                         {leftSubreddit && <SubRedditCard subreddit={leftSubreddit}></SubRedditCard>}
                                         {leftSubreddit && <Subcount subreddit={leftSubreddit} countUp={false}></Subcount>}
                                     </div>
                                 </div>
                                 <div style={{backgroundColor: getBackgroundColor(rightSubreddit)}}
-                                     className="split right">
-                                    <div className="section">
+                                     className={`${styles.split} ${styles.right}`}>
+                                    <div className={styles.section}>
                                         {rightSubreddit && <SubRedditCard subreddit={rightSubreddit}></SubRedditCard>}
                                         {readyForGuess ?
                                             (rightSubreddit &&
-                                                <Guess color={rightSubreddit.primary_color} onMakeGuess={makeGuess}/>)
+                                                <Guess color={rightSubreddit.primary_color} textColor={(colorTooLight(rightSubreddit.primary_color) ? "black": "")} onMakeGuess={makeGuess}/>)
                                             : (rightSubreddit && <Subcount subreddit={rightSubreddit} countUp={true}></Subcount>)}
                                     </div>
                                 </div>

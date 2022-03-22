@@ -88,9 +88,9 @@ export interface Subreddit {
     description:                       string;
     is_chat_post_feature_enabled:      boolean;
     submit_link_label:                 string;
-    user_flair_text_color:             null;
+    user_flair_text_color:             string;
     restrict_commenting:               boolean;
-    user_flair_css_class:              null;
+    user_flair_css_class:              string;
     allow_images:                      boolean;
     lang:                              string;
     whitelist_status:                  string;

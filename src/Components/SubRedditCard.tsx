@@ -1,6 +1,8 @@
 import {Subreddit} from "../Models/Subreddit";
 import {FaQuestionCircle} from "react-icons/fa";
 import {useEffect, useRef, useState} from "react";
+import {truncate, getImgUrl} from '../Utils';
+import styles from '../Styles/SubRedditCard.module.css'
 
 interface Props {
     subreddit: Subreddit;
@@ -34,19 +36,6 @@ const SubRedditCard = ({subreddit}: Props) => {
     }, [subreddit, prevSubReddit]);
 
 
-    const getImgUrl = () =>{
-        if(subreddit.icon_img !== "")
-            return subreddit.icon_img;
-        if(subreddit.community_icon !== "")
-            return subreddit.community_icon;
-        if(subreddit.header_img !== "")
-            return subreddit.header_img;
-       return "";
-    }
-
-    function truncate(str : string, n : number){
-        return (str.length > n) ? str.substr(0, n-1) + '...' : str;
-    };
 
     const toggleExpandDescription = () =>{
         if(descriptionSize > 200)
@@ -55,13 +44,13 @@ const SubRedditCard = ({subreddit}: Props) => {
             setDescriptionSize(500);
     }
 
-    const imgUrl = getImgUrl();
+    const imgUrl = getImgUrl(subreddit);
 
     return (
-        <div className="card border">
+        <div className={styles.card}>
             <a href={"https://www.reddit.com/" + subreddit.display_name_prefixed} target="_blank" rel={"noopener"}>
-            {imgUrl !== "" && imgUrl !== undefined && imgUrl !== null ? <img alt={subreddit.display_name + " icon"} src={getImgUrl()}/> : <FaQuestionCircle size={150}></FaQuestionCircle>}
-            <h1 >{subreddit.display_name}</h1>
+            {imgUrl !== "" && imgUrl !== undefined && imgUrl !== null ? <img alt={subreddit.display_name + " icon"} src={imgUrl}/> : <FaQuestionCircle size={150}></FaQuestionCircle>}
+            <h1 >{subreddit.display_name_prefixed}</h1>
             </a>
             <p onClick={toggleExpandDescription}>{description}</p>
         </div>
