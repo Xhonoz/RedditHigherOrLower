@@ -23,9 +23,9 @@
     border-radius: 50%;
 }
 
-.card FaQuestionCircle {
+.questionMark{
     font-size: 12rem;
-    border-radius: 50%;
+
 }
 
 .card h1{
