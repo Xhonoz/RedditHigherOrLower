@@ -11,9 +11,9 @@ const Guess = ({color, textColor = "white", onMakeGuess}: props) => {
     return (
             <div className={styles.guess}>
                 <button style={{backgroundColor: color, color: textColor}} onClick={() => onMakeGuess(true)} className="btn"
-                        id="higherButton">Higher<FaCaretUp className={styles.arrowUp} size={30}/></button>
+                        id="higherButton">Higher<FaCaretUp className={styles.arrowUp}/></button>
                 <button style={{backgroundColor: color, color: textColor}} onClick={() => onMakeGuess(false)} className="btn"
-                        id="lowerButton">Lower<FaCaretDown className={styles.arrowDown} size={30}/></button>
+                        id="lowerButton">Lower<FaCaretDown className={styles.arrowDown}/></button>
             </div>
     )
 }

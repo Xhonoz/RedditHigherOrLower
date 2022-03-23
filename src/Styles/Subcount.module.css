@@ -1,9 +1,25 @@
 .subcount {
-    margin-top: 10px;
+    margin-top: 1vh;
     position: relative;
     text-align: center;
 }
 
+.subcount h3 {
+    font-size: large;
+}
+
 .subcount h1 {
     font-size: xxx-large;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .subcount h3 {
+        font-size: medium;
+    }
+
+    .subcount h1 {
+        font-size: large;
+    }
+
 }

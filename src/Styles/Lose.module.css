@@ -23,3 +23,9 @@
 .lose h1 {
     font-size: xxx-large;
 }
+
+@media only screen and (max-width: 800px) {
+    .lose {
+        height: 50%;
+    }
+}

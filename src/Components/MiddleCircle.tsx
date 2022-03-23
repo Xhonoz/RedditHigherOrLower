@@ -9,9 +9,9 @@ interface props {
 const MiddleCircle = ({win, lose} : props) => {
 
     if(win)
-        return (<span className={`${styles.center} ${styles.dot} ${styles.winDot}`}><FaCheck className={styles.check} size={50}/></span>)
+        return (<span className={`${styles.center} ${styles.dot} ${styles.winDot}`}><FaCheck className={styles.check}/></span>)
     if(lose)
-        return (<span className={`${styles.center} ${styles.dot} ${styles.loseDot}`}><FaTimes className={styles.times} size={50}/></span>)
+        return (<span className={`${styles.center} ${styles.dot} ${styles.loseDot}`}><FaTimes className={styles.times}/></span>)
     return (
     <span className={`${styles.center} ${styles.dot}`}><h1>VS</h1></span>
     )

@@ -19,17 +19,36 @@
 }
 
 .card img {
-    height: 150px;
+    height: 12rem;
     border-radius: 50%;
 }
 
 .card FaQuestionCircle {
-    width: 150px;
+    font-size: 12rem;
     border-radius: 50%;
+}
+
+.card h1{
+    font-size: xx-large;
 }
 
 .card p {
     width: 100%;
-    min-height: 100px;
+    min-height: 10vh;
+    font-size: 1.7vh;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+    .card h1{
+        font-size: large;
+    }
+
+    .card img {
+        height: 4rem;
+    }
+
+    .card FaQuestionCircle{
+        font-size: 4rem;
+    }
 }

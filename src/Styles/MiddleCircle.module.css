@@ -32,12 +32,39 @@
     position: fixed;
 }
 
+.dot h1{
+    font-size: xx-large;
+}
+
 .check {
-    margin-top: 23%;
+    margin-top: 25%;
     color: white;
+    font-size: xxx-large;
 }
 
 .times {
-    margin-top: 23%;
+    margin-top: 25%;
     color: white;
+    font-size: xxx-large;
+}
+
+@media only screen and (max-width: 800px) {
+    .center {
+        width: 2em;
+        height: 2em;
+        margin-top: -1em;
+        margin-left: -1em;
+    }
+    .dot h1{
+        font-size: 0.8em;
+    }
+
+    .check {
+        font-size: medium;
+    }
+
+    .times {
+        font-size: medium;
+    }
+
 }

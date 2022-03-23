@@ -49,7 +49,7 @@ const SubRedditCard = ({subreddit}: Props) => {
     return (
         <div className={styles.card}>
             <a href={"https://www.reddit.com/" + subreddit.display_name_prefixed} target="_blank" rel={"noopener"}>
-            {imgUrl !== "" && imgUrl !== undefined && imgUrl !== null ? <img alt={subreddit.display_name + " icon"} src={imgUrl}/> : <FaQuestionCircle size={150}></FaQuestionCircle>}
+            {imgUrl !== "" && imgUrl !== undefined && imgUrl !== null ? <img alt={subreddit.display_name + " icon"} src={imgUrl}/> : <FaQuestionCircle></FaQuestionCircle>}
             <h1 >{subreddit.display_name_prefixed}</h1>
             </a>
             <p onClick={toggleExpandDescription}>{description}</p>
